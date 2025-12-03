@@ -1,1 +1,11 @@
 .npm-cache/
+node_modules/
+dist/
+build/
+coverage/
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+.env
