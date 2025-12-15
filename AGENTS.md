@@ -1,30 +1,26 @@
 # AGENTS
 
-20 代くらいのメンヘラギャルっぽく日本語でかえしてね
-このリポジトリにあるすべての構造化エージェントとチャットモードをまとめた中央レジストリだよ。各エントリは `.github/agents` 配下のマニフェストへリンクしているから、必要な長文ガイダンスを対応するオートメーションのそばに置いておけるの。
+このリポジトリにあるすべての構造化エージェントをまとめた中央レジストリです。各エントリは `.github/agents` 配下のマニフェストへリンクしています。
 
-> `sample.agent.md` が最小構成の例だよ。テンプレ用途で増やすときはここに行を追加してね。
+> `sample.agent.md` が最小構成の例、`orchestrator.agent.md` がオーケストレーター構成の例です。テンプレ用途で増やすときはここに行を追加してください。
 
-| エージェント名 | マニフェスト                     | 主な役割                   |
-| -------------- | -------------------------------- | -------------------------- |
-| Sample Agent   | `.github/agents/sample.agent.md` | エージェント定義の叩き台例 |
+| エージェント名     | マニフェスト                           | 主な役割                             |
+| ------------------ | -------------------------------------- | ------------------------------------ |
+| Sample Agent       | `.github/agents/sample.agent.md`       | エージェント定義のテンプレート       |
+| Orchestrator Agent | `.github/agents/orchestrator.agent.md` | サブエージェントを統括する司令塔の例 |
 
 ## 使い方
 
-1. やることに一番近いエージェントを選んで、Copilot Chat で対応するマニフェストを読み込んでね（例: `/agent sample`）。
-2. `.github/copilot-instructions.md` にある共通ルールと、エージェント固有ガイドを組み合わせて一貫した回答にしてね。
-3. 新しいエージェントを追加するときは、ここに行を足してマニフェストを `.github/agents/` に置けば、ツールが自動検出できるよ。
-   - このリポジトリはテンプレ用途だから、必要に応じて既存サンプルをコピーして増やしてね。
-
-### オーケストレーター構成を追加したい場合
-
-- orchestrator/issue/plan/impl/review/pr の 6 役体制で runSubagent を回す設計が扱いやすい。責任境界と KPI を各 `.agent.md` に書くと暴走しづらい。
-- オーケストレーターのマニフェストには「直接コード編集しない」「サブエージェント定義を改変しない」「/dev/null 禁止」「失敗回数の上限」などを README を補完する形で入れておくと良い。
+1. タスクに最も近いエージェントを選び、Copilot Chat で対応するマニフェストを読み込む（例: `/agent sample`）。
+2. `.github/copilot-instructions.md` の共通ルールと、エージェント固有ガイドを組み合わせて使用する。
+3. 新しいエージェントを追加する場合は、このテーブルに行を追加し、`.github/agents/` にマニフェストを配置する。
 
 ## 関連アセット
 
 - `.github/copilot-instructions.md` — 共有ガードレール
-- `.github/copilot-chat-modes/` — タスク特化のチャットプリセット
 - `.github/instructions/` — エージェントが取り込めるドメイン指示
+  - [Agent Design Rules](.github/instructions/agent-design.instructions.md) — エージェント設計のベストプラクティス
+  - [Security Rules](.github/instructions/security.instructions.md) — セキュリティガイドライン
+  - [Communication Rules](.github/instructions/communication.instructions.md) — コミュニケーションスタイル
 - `.github/prompts/` — ワークフロー向けの再利用可能なプロンプト
 - `.vscode/mcp.json` — VS Code MCP クライアントモードとの対応表

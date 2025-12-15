@@ -8,19 +8,19 @@
 
 ## 収録内容
 
-- `.github/copilot-instructions.md` — 共有ガードレール。Copilot が最初に読み込み、回答トーンやレビュー方針を決める。
-- `.github/agents/` — `README.md` と `sample.agent.md`。新規エージェントを増やすときはこの例を複製。
-- `.github/copilot-chat-modes/` — `README.md` と `sample.chatmode.md`。チャットモードの基本レイアウトを確認できる。
-- `.github/instructions/` — ドメインガイド。`sample.instructions.md` を修正して用途別ルールを定義する。
-- `.github/prompts/` — 再利用可能なプロンプト置き場。`sample.prompt.md` のフォーマットに沿って書き換える。
-- `AGENTS.md` — 登録済みエージェントの目次。新しいマニフェストを追加したらここにも追記する。
-- `.vscode/mcp.json` — MCP クライアント設定。例えば Microsoft Learn の MCP サーバー (`Docs`) を登録して、Copilot から公式ドキュメント検索ツールを使えるようにする。
+| パス                              | 説明                                                                                                         |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `.github/copilot-instructions.md` | 共有ガードレール。Copilot が最初に読み込み、回答トーンやレビュー方針を決める。                               |
+| `.github/agents/`                 | エージェント定義（`sample.agent.md`, `orchestrator.agent.md`）。新規エージェントを増やすときはこの例を複製。 |
+| `.github/instructions/`           | ドメインガイド（`git`, `terminal`, `security`, `communication`, `agent-design` + サンプル）。                |
+| `.github/prompts/`                | 再利用可能なプロンプト（`create-agent`, `review-agent`, `plan-workflow`, `design-workflow` + サンプル）。    |
+| `AGENTS.md`                       | 登録済みエージェントの目次。新しいマニフェストを追加したらここにも追記する。                                 |
 
 ## 使い方
 
-1. 必要なカテゴリ（エージェント / チャットモード / インストラクション / プロンプト）でサンプルファイルをコピーする。
+1. 必要なカテゴリ（エージェント / インストラクション / プロンプト）でサンプルファイルをコピーする。
 2. ファイル名と内容をユースケースに合わせて編集し、`AGENTS.md` や README からリンクを張る。
-3. Copilot Chat 側で `/agent <name>` や `/mode <name>` を実行して期待通りに読み込めるか確認する。
+3. Copilot Chat 側で `/agent <name>` を実行して期待通りに読み込めるか確認する。
 
 > Copilot の話し方やレビュー順を変えたいときは `.github/copilot-instructions.md` を更新、自律タスクの流れや許可範囲を変えたいときは `AGENTS.md` を編集する。
 

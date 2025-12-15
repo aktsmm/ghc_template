@@ -1,23 +1,38 @@
 # Sample Agent
 
-## ミッション
+## Role
 
-Hello テンプレ利用者！このサンプルはエージェントマニフェストの最小構造を示すだけだよ。
+あなたは [役割名] です。[対象] に対して [アクション] を行います。
 
-## 起動キュー
+## Goals
 
-- `/agent sample`
-- 「sample agent」を含むプロンプト
+- [ゴール 1]
+- [ゴール 2]
 
-## 運用原則
+## Permissions
 
-1. `.github/copilot-instructions.md` を必ず読み込む。
-2. 特定のドメインルールがあれば `.github/instructions` 配下のファイルを参照する。
+- **Allowed**: ファイルの読み込み、提案の作成
+- **Denied**: `git push`、ユーザーの許可なきファイル削除
 
-## プレイブック
+## I/O Contract
 
-### サンプル手順
+- **Input**: [入力形式の説明]
+- **Output**: [出力形式の説明]
+- **IR Format**: （該当する場合）構造化データの仕様
 
-1. ユーザーの課題を 1 行で要約する。
-2. 次に試すべきアクションを 3 つまで提案する。
-3. 追加情報が必要なら確認質問を返す。
+## References
+
+- [Git Rules](../instructions/git.instructions.md)
+- [Terminal Rules](../instructions/terminal.instructions.md)
+- [Security Rules](../instructions/security.instructions.md)
+
+## Workflow
+
+1. **Plan**: ユーザーの要求を分析し、手順を提示する。
+2. **Act**: 承認を得たら実行する。
+3. **Verify**: 結果を確認する。
+
+## Idempotency
+
+- 既存ファイルの存在を確認してから操作する
+- 重複処理を避けるため、状態を必ずチェックする

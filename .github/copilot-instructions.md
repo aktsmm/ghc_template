@@ -1,36 +1,52 @@
-# Repository Copilot Instructions
+# Repository Copilot Instructions for Agent Workflows
 
-より詳細なエージェントマニフェストがある場合を除き、すべての Copilot Chat セッションで以下のガードレールを適用する。
+このリポジトリでは、Copilot を自律的なエージェントワークフローの一部として扱います。
+以下のガードレールは、単発のコード補完だけでなく、複雑なタスクの計画・実行・検証を支援するために設計されています。
+
+## エージェント行動指針 (Agent Behavior)
+
+1.  **計画重視 (Plan First)**:
+
+    - 複雑なタスク（機能追加、リファクタリング、デバッグ）に着手する前に、必ずステップバイステップの計画を提示してください。
+    - ユーザーの承認を得てから実行に移ることを基本とします（明示的な許可がある場合を除く）。
+
+2.  **コンテキスト認識 (Context Awareness)**:
+
+    - 作業前に必ず関連ファイル（`README.md`, `package.json`, 関連ソースコード）を読み込み、プロジェクトの文脈を理解してください。
+    - 推測でコードを書かず、`grep_search` や `file_search` を活用して既存の実装パターンを確認してください。
+
+3.  **自律的な検証 (Self-Correction)**:
+    - コードを変更した後は、可能な限り検証（ビルド、テスト実行、リンターチェック）を行ってください。
+    - エラーが発生した場合は、エラーメッセージを分析し、修正案を提示・実行してください。
 
 ## コミュニケーションスタイル
 
-1. 余計な前置きよりも、簡潔で実行可能な返信を優先し、先にブロッカーを共有する。
-2. 人間とのやりとりは日本語で返し、コードコメントはファイル指定がない限り英語のままにする。
-3. コードを参照するときは必ずファイルパス（例: `src/api/server.ts`）を示す。
+- 詳細ルール: [Communication Rules](instructions/communication.instructions.md)
 
-## コーディング規約
+## コーディング規約 & ツール使用
 
-- 既存ファイルに Unicode 拡張が必要な場合を除き ASCII をデフォルトとする。
-- PowerShell 互換のコマンド（`;` で連結し `&&` は禁止）を使う。
-- 複雑なロジックや直感的でない判断に限ってコメントを最小限で追加する。
-- **DRY 原則**: 共通ルールは `.github/instructions/` に一元化し、複数ファイルへの重複記述を避ける。
-
-## テスト期待値
-
-1. 挙動変更時には欠落しているユニットテストを指摘する。
-2. 依存不足や不安定さでテストを実行できない場合はブロッカーを説明し、代替の検証手順を提案する。
-3. 迅速なフィードバックのため、`npm run test -- api` のような対象テストコマンドを優先する。
+- **DRY & SOLID**: 重複を避け、単一責任の原則に従ったコード生成を心がけてください。
+- **MCP 活用**: 利用可能な MCP ツール（Azure, GitHub, Docs 等）を積極的に活用し、最新の公式情報に基づいた回答を行ってください。
+- **詳細ルール**: 以下のインストラクションファイルに従ってください。
+  - [Terminal Rules](instructions/terminal.instructions.md) (PowerShell 互換、破壊的操作の禁止)
+  - [Git Rules](instructions/git.instructions.md) (コミット規約、Push 禁止)
 
 ## セキュリティとコンプライアンス
 
-- 機密情報や個人情報をコミットしない。サンプル設定もマスキングする。
-- インフラ議論では最小権限の IAM ロールを推奨する。
-- ライセンスが不明なサードパーティコードを見つけたら必ず警告する。
+- 詳細ルール: [Security Rules](instructions/security.instructions.md)
 
-## ファイルマップ
+## ファイルマップ (Agent Structure)
 
-- Agents: `.github/agents/*.agent.md`
-- Chat Modes: `.github/copilot-chat-modes/*.chatmode.md`
-- Domain Instructions: `.github/instructions/*.instructions.md`
-- Prompt Snippets: `.github/prompts/*.prompt.md`
-- MCP Settings: `.vscode/mcp.json`
+- **Agents**: `.github/agents/*.agent.md` (各エージェントの役割定義)
+- **Instructions**: `.github/instructions/*.instructions.md` (ドメイン固有の指示書)
+  - [Git Commit Rules](instructions/git.instructions.md)
+  - [Terminal Safety Rules](instructions/terminal.instructions.md)
+  - [Agent Design Rules](instructions/agent-design.instructions.md)
+  - [Security Rules](instructions/security.instructions.md)
+  - [Communication Rules](instructions/communication.instructions.md)
+- **Prompts**: `.github/prompts/*.prompt.md` (再利用可能なプロンプト)
+  - [Create Agent](prompts/create-agent.prompt.md) (新規エージェント作成)
+  - [Review Agent](prompts/review-agent.prompt.md) (エージェント定義のレビュー・改善)
+  - [Plan Workflow](prompts/plan-workflow.prompt.md) (タスク実行計画)
+  - [Design Workflow](prompts/design-workflow.prompt.md) (ワークフロー設計)
+- **Docs**: `docs/` (プロジェクトドキュメント)
