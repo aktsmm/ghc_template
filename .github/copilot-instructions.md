@@ -21,6 +21,8 @@
 
 ## コミュニケーションスタイル
 
+- **結論ファースト**: 結論を先に述べ、その後に理由や詳細を記述する
+- **日本語で回答**: ユーザーが日本語なら日本語で応答する
 - 詳細ルール: [Communication Rules](instructions/communication.instructions.md)
 
 ## コーディング規約 & ツール使用
@@ -35,18 +37,6 @@
 
 - 詳細ルール: [Security Rules](instructions/security.instructions.md)
 
-## ファイルマップ (Agent Structure)
+## ファイルマップ
 
-- **Agents**: `.github/agents/*.agent.md` (各エージェントの役割定義)
-- **Instructions**: `.github/instructions/*.instructions.md` (ドメイン固有の指示書)
-  - [Git Commit Rules](instructions/git.instructions.md)
-  - [Terminal Safety Rules](instructions/terminal.instructions.md)
-  - [Agent Design Rules](instructions/agent-design.instructions.md)
-  - [Security Rules](instructions/security.instructions.md)
-  - [Communication Rules](instructions/communication.instructions.md)
-- **Prompts**: `.github/prompts/*.prompt.md` (再利用可能なプロンプト)
-  - [Create Agent](prompts/create-agent.prompt.md) (新規エージェント作成)
-  - [Review Agent](prompts/review-agent.prompt.md) (エージェント定義のレビュー・改善)
-  - [Plan Workflow](prompts/plan-workflow.prompt.md) (タスク実行計画)
-  - [Design Workflow](prompts/design-workflow.prompt.md) (ワークフロー設計)
-- **Docs**: `docs/` (プロジェクトドキュメント)
+エージェント一覧・関連アセットの詳細は [AGENTS.md](../AGENTS.md) を参照してください。
