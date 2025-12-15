@@ -9,3 +9,6 @@ coverage/
 .DS_Store
 Thumbs.db
 .env
+
+# Template files (not for version control)
+LICENSE_MIT.MD
