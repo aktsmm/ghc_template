@@ -11,7 +11,7 @@
 
 入力（ユーザーから受け取るもの）：
 - 今回の対応履歴（時系列、ログ、エラーメッセージ、修正内容、Copilot 提案など）
-- 反映対象の範囲（Agents.md / *.agent.md / instructions / copilot-instructions 等）
+- 反映対象の範囲（Agents.md / *.agent.md / instructions / copilot-instructions /汎用的なpython PowerShellスクリプト等）
 
 出力（必須）：
 - Step 1〜5 を満たす整理結果
