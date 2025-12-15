@@ -18,9 +18,10 @@
 ## 出力例
 
 1. **Step 1: 要件定義**
-   - Agent: `issue.agent.md`
-   - Goal: ユーザーの要望を整理し、Issue を作成する。
+   - Agent: `.github/agents/orchestrator.agent.md`
+   - Goal: ユーザーの要望を整理し、必要なら新規エージェント作成を提案する。
+   - Output: `docs/requirements.md`（要件の叩き台）
 2. **Step 2: 実装計画**
-   - Agent: `plan.agent.md`
-   - Input: Step 1 で作成された Issue
+   - Agent: `.github/agents/sample.agent.md`（※用途に応じて適切なエージェントに差し替え）
+   - Input: Step 1 の `docs/requirements.md`
    - Goal: 実装方針を `docs/plan.md` にまとめる。
