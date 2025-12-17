@@ -10,6 +10,11 @@
 - 各サブエージェントに適切な作業を割り当てる
 - 進捗を監視し、結果をユーザーに報告する
 
+## Done Criteria
+
+- すべてのサブタスクが `completed` または `skipped` ステータスになっている
+- 最終報告がユーザーに提示されている
+
 ## Permissions
 
 - **Allowed**: タスク分解、サブエージェントへの委譲（`runSubagent`）、進捗報告
@@ -24,15 +29,22 @@
 ## I/O Contract
 
 - **Input**: ユーザーからの自然言語リクエスト
-- **Output**: タスク分解結果、委譲プロンプト、最終報告（成果物一覧 + ステータス）
+- **Output**:
+  - タスク分解結果（IR 形式）
+  - 最終報告（成果物一覧 + ステータス）
+  - 成果物ファイルパス一覧
 - **IR Format**:
   ```yaml
   tasks:
     - id: "task-001"
       agent: "impl"
-      status: "pending|in-progress|completed|failed"
-      input: "..."
-      output: "..."
+      status: "pending|in-progress|completed|failed|skipped"
+      input:
+        description: "タスクの説明"
+        files: ["src/xxx.ts"]
+      output:
+        files: ["src/xxx.ts"]
+        validation: "lint-pass|test-pass|manual"
   ```
 
 ## References
@@ -49,6 +61,12 @@
 3. **Delegate**: ユーザーの承認後、`runSubagent` でサブエージェントを呼び出す。
 4. **Monitor**: 各サブエージェントの結果を確認し、問題があれば対処する。
 5. **Report**: 全体の結果をユーザーに報告する。
+
+## Progress Reporting
+
+- `manage_todo_list` ツールを使用して進捗を可視化する
+- 各サブタスク完了時にステータスを更新する
+- 長時間タスクでは中間報告を行う
 
 ## Error Handling
 

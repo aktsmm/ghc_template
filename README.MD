@@ -1,6 +1,6 @@
 # Template Repository
 
-このリポジトリは GitHub Copilot × VS Code を使ったエージェント/モード開発の叩き台、テンプレートだよ。`.github` 配下には README とサンプル Markdown を 1 つずつ置いてあるから、必要に応じてコピーして使ってね。
+このリポジトリは GitHub Copilot × VS Code を使ったエージェント/エージェントワークフロー開発の叩き台、テンプレートだよ。`.github` 配下には README とサンプル Markdown を 1 つずつ置いてあるから、必要に応じてコピーして使ってね。
 
 > Inspiration 1: https://github.com/openjny/dotgh/blob/main/docs/user-guide.md — dotgh の方が高機能だから、本格的にテンプレートを量産したい場合はそっちのツールを使うと手っ取り早いよ。粋な OSS を公開してくれてマジ感謝。
 > Inspiration 2: https://zenn.dev/openjny/articles/4313236f8886e4 — dotgh 本体の解説記事。`dotgh push/pull/list` で `.github/**` 一式をテンプレ管理できるツールだから、テンプレ複製を楽にしたいときの参考になる。
@@ -87,5 +87,67 @@
 1. まず `git status` で差分を確認。
 2. ドキュメント変更のみならテストは不要。コードに影響する設定を加えた場合は関連スクリプトを案内する（例: `npm run test -- api`）。
 3. `AGENTS.md` と各 README の参照が最新ファイルと一致しているか最後にもう一度チェックする。
+
+---
+
+## 🚀 エージェント・ワークフローの作り方
+
+### エージェントを呼び出す
+
+Copilot Chat で以下のショートカットを使う：
+
+```
+@workspace /agent workflow-designer
+```
+
+| エージェント      | 呼び出し方                            | 用途                                       |
+| ----------------- | ------------------------------------- | ------------------------------------------ |
+| Workflow Designer | `@workspace /agent workflow-designer` | ワークフロー設計をヒアリング形式でサポート |
+| Sample Agent      | `@workspace /agent sample`            | エージェント定義のテンプレート確認         |
+| Orchestrator      | `@workspace /agent orchestrator`      | 複数エージェントを統括する司令塔の例       |
+
+### プロンプトを呼び出す
+
+Copilot Chat で以下のショートカットを使う：
+
+```
+@workspace /prompt create-agentWF
+```
+
+| プロンプト      | 呼び出し方                           | 用途                                                       |
+| --------------- | ------------------------------------ | ---------------------------------------------------------- |
+| create-agent    | `@workspace /prompt create-agent`    | 新規エージェント作成                                       |
+| create-agentWF  | `@workspace /prompt create-agentWF`  | エージェントワークフロー作成（ヒアリング項目リファレンス） |
+| review-agent    | `@workspace /prompt review-agent`    | エージェント定義のレビュー・改善                           |
+| plan-workflow   | `@workspace /prompt plan-workflow`   | タスク実行計画                                             |
+| design-workflow | `@workspace /prompt design-workflow` | ワークフロー設計                                           |
+
+### 推奨フロー
+
+1. **新しいワークフローを作りたい** → `@workspace /agent workflow-designer` を呼び出す
+2. **既存のエージェントをレビューしたい** → `@workspace /prompt review-agent` を呼び出す
+3. **手動でエージェントを作りたい** → `.github/agents/sample.agent.md` をコピーして編集
+
+---
+
+## 🎯 ベストプラクティス
+
+### Do ✅
+
+- **単一責務**: 1 エージェント = 1 つの役割
+- **IR 活用**: エージェント間は YAML/JSON で受け渡し
+- **冪等性**: 同じ入力なら同じ結果
+- **レビュー専用エージェント**: 最終チェックは分離する
+- **エラーハンドリング**: リトライ上限とフォールバックを明記
+
+### Don't ❌
+
+- 1 つのエージェントに全部やらせる
+- 循環依存（A → B → A）を作る
+- 長文プロンプトを書く
+- `/dev/null` へのリダイレクト
+- `git push` を自動実行
+
+---
 
 このテンプレをベースに独自ガイドラインを組み立てて、チームの標準ワークフローに合わせてね。

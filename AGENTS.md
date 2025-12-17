@@ -4,10 +4,11 @@
 
 > `sample.agent.md` が最小構成の例、`orchestrator.agent.md` がオーケストレーター構成の例です。テンプレ用途で増やすときはここに行を追加してください。
 
-| エージェント名     | マニフェスト                           | 主な役割                             |
-| ------------------ | -------------------------------------- | ------------------------------------ |
-| Sample Agent       | `.github/agents/sample.agent.md`       | エージェント定義のテンプレート       |
-| Orchestrator Agent | `.github/agents/orchestrator.agent.md` | サブエージェントを統括する司令塔の例 |
+| エージェント名     | マニフェスト                                | 主な役割                                           |
+| ------------------ | ------------------------------------------- | -------------------------------------------------- |
+| Sample Agent       | `.github/agents/sample.agent.md`            | エージェント定義のテンプレート                     |
+| Orchestrator Agent | `.github/agents/orchestrator.agent.md`      | サブエージェントを統括する司令塔の例               |
+| Workflow Designer  | `.github/agents/workflow-designer.agent.md` | ワークフロー設計をヒアリングで支援するエージェント |
 
 ## 使い方
 
@@ -34,12 +35,13 @@
 
 ### Prompts（再利用可能なプロンプト）
 
-| ファイル                                                               | 説明                             |
-| ---------------------------------------------------------------------- | -------------------------------- |
-| [create-agent.prompt.md](.github/prompts/create-agent.prompt.md)       | 新規エージェント作成             |
-| [review-agent.prompt.md](.github/prompts/review-agent.prompt.md)       | エージェント定義のレビュー・改善 |
-| [plan-workflow.prompt.md](.github/prompts/plan-workflow.prompt.md)     | タスク実行計画                   |
-| [design-workflow.prompt.md](.github/prompts/design-workflow.prompt.md) | ワークフロー設計                 |
+| ファイル                                                               | 説明                                           |
+| ---------------------------------------------------------------------- | ---------------------------------------------- |
+| [create-agent.prompt.md](.github/prompts/create-agent.prompt.md)       | 新規エージェント作成                           |
+| [create-agentWF.prompt.md](.github/prompts/create-agentWF.prompt.md)   | エージェントワークフロー作成（ヒアリング形式） |
+| [review-agent.prompt.md](.github/prompts/review-agent.prompt.md)       | エージェント定義のレビュー・改善               |
+| [plan-workflow.prompt.md](.github/prompts/plan-workflow.prompt.md)     | タスク実行計画                                 |
+| [design-workflow.prompt.md](.github/prompts/design-workflow.prompt.md) | ワークフロー設計                               |
 
 ### その他
 
