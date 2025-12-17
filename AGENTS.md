@@ -23,13 +23,14 @@
 
 ### Instructions（ドメイン別ルール）
 
-| ファイル                                                                            | 説明                                                           |
-| ----------------------------------------------------------------------------------- | -------------------------------------------------------------- |
-| [git.instructions.md](.github/instructions/git.instructions.md)                     | Git コミット規約（Conventional Commits、Push 禁止）            |
-| [terminal.instructions.md](.github/instructions/terminal.instructions.md)           | ターミナル操作規約（PowerShell 互換、破壊的操作の注意）        |
-| [agent-design.instructions.md](.github/instructions/agent-design.instructions.md)   | エージェント設計原則（単一責任、冪等性、オーケストレーション） |
-| [security.instructions.md](.github/instructions/security.instructions.md)           | セキュリティガイドライン（機密情報、外部 API、入力検証）       |
-| [communication.instructions.md](.github/instructions/communication.instructions.md) | コミュニケーションスタイル（結論ファースト、言語設定）         |
+| ファイル                                                                              | 説明                                                           |
+| ------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| [git.instructions.md](.github/instructions/git.instructions.md)                       | Git コミット規約（Conventional Commits、Push 禁止）            |
+| [terminal.instructions.md](.github/instructions/terminal.instructions.md)             | ターミナル操作規約（PowerShell 互換、破壊的操作の注意）        |
+| [agent-design.instructions.md](.github/instructions/agent-design.instructions.md)     | エージェント設計原則（単一責任、冪等性、オーケストレーション） |
+| [security.instructions.md](.github/instructions/security.instructions.md)             | セキュリティガイドライン（機密情報、外部 API、入力検証）       |
+| [communication.instructions.md](.github/instructions/communication.instructions.md)   | コミュニケーションスタイル（結論ファースト、言語設定）         |
+| [microsoft-docs.instructions.md](.github/instructions/microsoft-docs.instructions.md) | Microsoft 公式ドキュメント参照（MCP ツール活用、ソース明記）   |
 
 ### Prompts（再利用可能なプロンプト）
 
