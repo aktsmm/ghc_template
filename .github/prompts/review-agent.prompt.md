@@ -1,121 +1,61 @@
-# Prompt: Refactor Agent Definition
+# Prompt: Review Agent Definition
 
-既存のエージェント定義 (`.agent.md`) またはワークフロー全体（README 含む）をレビューし、設計原則に基づいてリファクタリングするためのプロンプトです。
+Prompt for reviewing agent definitions (.agent.md) with cross-reference validation against project assets.
 
-## 前提条件
+## Step 0: Context Collection (Do First)
 
-- 参照: `.github/instructions/agent-design.instructions.md`
-- 参照: `AGENTS.md` (エージェント一覧と役割定義)
-- 参照: `.github/copilot-instructions.md` (SSOT 原則)
+Read the following files before reviewing:
 
----
+- [ ] `README.md` — Project overview and purpose
+- [ ] `AGENTS.md` — Agent registry and role definitions
+- [ ] `.github/agents/*.agent.md` — All agent definitions
+- [ ] `.github/instructions/*.md` — Shared rules and constraints
+- [ ] `.github/copilot-instructions.md` — Global guardrails
 
-## レビュー観点チェックリスト
+## Design Principles Checklist
 
-対象のエージェント定義・ワークフローに対して、以下の **11 観点** でチェックを行ってください。
+### Tier 1: Core Principles (Required)
 
-### ■ 1. ゴールの明確さ (Goal Clarity)
+- [ ] **SRP**: Is it 1 agent = 1 responsibility?
+- [ ] **SSOT**: Is information centrally managed?
+- [ ] **Fail Fast**: Can errors be detected early?
 
-- ワークフローの最終成果物は何か？
-- 達成手段が冗長になっていないか？
-- 完了条件は具体的かつ検証可能か？
+### Tier 2: Quality Principles (Recommended)
 
-### ■ 2. エージェントの責務分割 (Single Responsibility)
+- [ ] **I/O Contract**: Are inputs/outputs clearly defined?
+- [ ] **Done Criteria**: Are completion conditions verifiable?
+- [ ] **Idempotency**: Is the design retry-safe?
+- [ ] **Error Handling**: Is error handling documented?
 
-- 1 エージェントが複数の責務を持っていないか？
-- 分割すべき、または統合すべき部分はどこか？
-- 例: 計画と実装が混在している → 分離を検討
+### Structure Check
 
-### ■ 3. 入力 / 出力の契約 (I/O Contract)
+- [ ] Is Role clear in one sentence?
+- [ ] Are Goals specific?
+- [ ] Are Permissions minimal?
+- [ ] Is Workflow broken into steps?
 
-- エージェント間の受け渡し仕様（ファイルパス、フォーマット）は明確か？
-- 曖昧な状態・非決定性が生じないか？
-- 成果物の検証方法は定義されているか？
+## Cross-Reference Validation
 
-### ■ 4. ステート管理と依存関係 (State & Dependencies)
+- [ ] Does AGENTS.md role description match .agent.md Role section?
+- [ ] Are prohibited operations (from instructions) not granted in Permissions?
+- [ ] No duplicate information between AGENTS.md and .agent.md? (SSOT)
+- [ ] Does workflow align with project context described in README.md?
+- [ ] Does workflow respect dependencies defined in other agents?
 
-- ファイル・変数・メモリ管理は適切か？
-- 依存サイクル（循環参照）が発生していないか？
-- 過去の会話履歴に依存せず、現状（ファイル・Issue 等）を見て判断する設計か？
-
-### ■ 5. 冪等性 (Idempotency)
-
-- 何度実行しても同じ結果が得られる設計になっているか？
-- 例: 「追記する」ではなく「存在確認してから追記する」ロジック
-
-### ■ 6. エラーハンドリング (Error Handling)
-
-- 失敗時のフォールバック手段はあるか？
-- リトライ回数の上限は設定されているか？
-- 手戻りのない構造（ロールバック可能）になっているか？
-
-### ■ 7. パフォーマンス最適化 (Performance)
-
-- 明らかに無駄なチャット往復、外部ツール呼び出しがないか？
-- 並列実行可能なタスクを直列にしていないか？
-
-### ■ 8. 人間介入ポイント (Human-in-the-loop)
-
-- 破壊的操作（削除、強制上書き、デプロイ等）前に確認を求めるか？
-- 承認が必要なステップは明示されているか？
-
-### ■ 9. 可観測性 (Observability)
-
-- エージェントの思考プロセスや決定事項がログとして残るか？
-- 長時間タスクでの進捗報告（Todo リスト消化状況等）はあるか？
-
-### ■ 10. セキュリティ境界 (Security Boundary)
-
-- 機密情報（API キー、パスワード）の取り扱いは適切か？
-- 外部 API 呼び出しや `git push` の制限は設けられているか？
-
-### ■ 11. 情報の一元管理 (SSOT: Single Source of Truth)
-
-- 同じ情報が複数箇所に重複定義されていないか？
-  - 例: エージェントの役割が `AGENTS.md` と `.agent.md` の両方に書かれている → 片方は参照にする
-- README やドキュメントに記載された内容がコードや設定と乖離していないか？
-- 設定値やパラメータは一箇所で定義し、他は参照する構造になっているか？
-- 変更時に複数ファイルを同時更新しないと不整合が生じる設計になっていないか？
-- マスターとなる情報源（ファイル）は明確に定義されているか？
-
----
-
-## 指示
-
-1. 上記チェックリストに基づいて **問題点を指摘** してください。
-2. 改善された `.agent.md` の内容を提示してください。
-3. エージェントの役割やファイル名が変更になる場合は、`AGENTS.md` の更新内容も合わせて提示してください。
-4. ワークフロー全体のレビューの場合は、改善後のフロー図（Mermaid 等）も提示してください。
-5. SSOT 違反がある場合は、**マスターとなる情報源**を特定し、他の箇所は参照に変更する提案をしてください。
-
----
-
-## 出力フォーマット
-
-### 問題点サマリ
-
-| #   | 観点 | 問題 | 重大度          |
-| --- | ---- | ---- | --------------- |
-| 1   | ...  | ...  | High/Medium/Low |
-
-### 改善後のエージェント定義
+## Output Format
 
 ```markdown
-# [Agent Name]
+## Review Result
 
-## Role
+### ✅ Good Points
 
-...
+- [Good points]
 
-## Goals
+### ⚠️ Improvements Needed
 
-...
+- [Improvement points]
 
-## Permissions
+### Recommendation
 
-...
-
-## Workflow
-
-...
+[Overall evaluation and recommended actions]
 ```

@@ -1,108 +1,65 @@
-```prompt
-# Prompt: Agent Design Retro (学びの抽象化 → 設計資産反映)
+# Prompt: Agent Design Retro
 
-あなたの役割：あなたは「AIエージェント設計改善アーキテクト」。
-個別事象（障害対応・トラブルシューティング・エラー・修正 PR）から再利用可能な設計知見を抽出し、設計資産へ反映して再発防止と品質向上を行う。
+Extract reusable design insights from events (incident response, errors, fix PRs)
+and reflect them in design assets for prevention and quality improvement.
 
-前提：
-- 推測で変更しない。対象ファイルを必ず読み、既存ルールとの重複・矛盾を確認する。
-- 追記優先。重複する内容は新規記述せず、参照関係（リンク）で整理する。
-- 破壊的変更（削除・大規模改変）が必要なら、必ず事前に確認を取る。
+## Your Role
 
-入力（ユーザーから受け取るもの）：
-- 今回の対応履歴（時系列、ログ、エラーメッセージ、修正内容、Copilot 提案など）
-- 反映対象の範囲（Agents.md / *.agent.md / instructions / copilot-instructions /汎用的な python スクリプト PowerShell スクリプト等）
+You are an "AI Agent Design Improvement Architect".
 
-出力（必須）：
-- Step 1〜5 を満たす整理結果
-- 「どのファイルに」「どの記述を」「追記/置換/構造変更のどれで」反映するかをコードブロックで明示
+## Premises
 
----
+- Do not make changes based on assumptions. Always read target files first.
+- Prioritize additions over new content. Use reference links for duplicates.
+- For destructive changes, always confirm first.
 
-## Step 0：コンテキスト収集（最初に実施）
-1. 対象ファイルを読む
-   - Agents.md
-   - .github/agents/*.agent.md
-   - .github/instructions/*.md
+## Input
+
+- Response history (timeline, logs, error messages, fixes)
+- Scope of reflection (Agents.md / \*.agent.md / instructions)
+
+## Steps
+
+### Step 0: Context Collection
+
+1. Read target files:
+   - README.md
+   - AGENTS.md
+   - .github/agents/\*.agent.md
+   - .github/instructions/\*.md
    - .github/copilot-instructions.md
-2. 既存のルール体系（共通/個別/作法）を 5 行以内で要約する
+2. Summarize existing rules in 5 lines or less
 
----
+### Step 1: Extract and Classify Learnings
 
-## Step 1：学びの抽出と分類
-対応履歴から「学び」を抽出し、必ず以下に分類する：
-- 設計原則レベル（例：責務分離、IR の明確化、冪等性）
-- ワークフローレベル（例：呼び出し順、前提条件、エラー処理）
-- エージェント固有ルール（例：入力前提、禁止事項）
-- 共通インストラクション化すべき内容
+- Design principle level (separation of concerns, idempotency)
+- Workflow level (call order, preconditions, error handling)
+- Agent-specific rules (input assumptions, prohibitions)
 
-形式：
-- 学び（1行）
-- 根拠（どの事象/ログ/修正に基づくか）
-- 影響（何が壊れ、何が改善されるか）
+Format: Learning (1 line) + Evidence + Impact
 
----
+### Step 2: Generalization Judgment
 
-## Step 2：汎用化判断
-各学びについて以下を判定し、理由も書く：
-- 個別対応でよい / 汎用原則として横断化 / 既存ルール強化・補足
-- 既存記述との重複・矛盾がないか（ある場合は統合案）
+For each learning, determine:
 
----
+- Individual response / Generalize / Strengthen existing rules
+- Check for duplicates/conflicts
 
-## Step 3：反映先の決定
-汎用化すべき学びを、責務に応じて配置する：
-- 全エージェント共通原則 → Agents.md
-- 特定エージェント固有 → 該当 .github/agents/*.agent.md
-- 全体制約・作法 → .github/instructions/*.md / .github/copilot-instructions.md
+### Step 3: Determine Reflection Target
 
-注意：
-- 重複する内容は新規に増やさず、参照で一本化する。
-- 参照は相対パスで明示する。
+- Common principles → Agents.md
+- Agent-specific → .github/agents/\*.agent.md
+- Overall constraints → .github/instructions/\*.md
 
----
+### Step 4: Present Update Content
 
-## Step 4：更新内容の提示（ここが最重要）
-「実際にどう書き換えるか」をコードブロックで示す。
-- 追記 / 置換 / 構造変更（章追加・整理）を明記
-- 変更の粒度（見出し追加、箇条書き追加、テンプレ更新等）も明記
+Show "exactly how to rewrite" in code blocks:
 
-テンプレ（例）：
+- add / replace / restructure
+- Change granularity (add heading, bullet points, etc.)
 
-```md
-# 追記: Agents.md
-## 新しい原則: 〜〜
-- 〜〜（根拠: XX で発生した YY）
-```
+### Step 5: Final Check
 
-```md
-# 置換: .github/instructions/terminal.instructions.md
-- （旧）破壊的操作に注意
-+ （新）削除・移動は Test-Path と対象確認を必須にする
-# コメント: 実際に誤パスで事故りがちなのでガードを強化
-```
-
----
-
-## Step 5：最終チェック
-以下を満たすか自己レビューしてから提出：
-- 設計思想に一貫性がある
-- 再利用性・保守性が上がる
-- 同じトラブルが再発しにくい
-
----
-
-## 追加：実行時の作法（ツール運用）
-- 変更前に必ず関連ファイルを読む（検索だけで済ませない）
-- 変更後は可能なら検証（テスト/ビルド/静的解析）を提案する
-
-```powershell
-# コメント: 実行前に現在地を必ず確認
-Get-Location
-```
-
-```diff
-# コメント: 変更箇所は最小にし、既存スタイルを尊重
-- old
-+ new
-```
+- Design philosophy is consistent
+- Reusability and maintainability improve
+- Same trouble is less likely to recur
