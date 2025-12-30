@@ -2,17 +2,27 @@
 
 このリポジトリは GitHub Copilot × VS Code を使ったエージェント/エージェントワークフロー開発の叩き台、テンプレートだよ。`.github` 配下には README とサンプル Markdown を 1 つずつ置いてあるから、必要に応じてコピーして使ってね。
 
-> Inspiration 1: https://github.com/openjny/dotgh/blob/main/docs/user-guide.md — dotgh の方が高機能だから、本格的にテンプレートを量産したい場合はそっちのツールを使うと手っ取り早いよ。粋な OSS を公開してくれてマジ感謝。
-> Inspiration 2: https://zenn.dev/openjny/articles/4313236f8886e4 — dotgh 本体の解説記事。`dotgh push/pull/list` で `.github/**` 一式をテンプレ管理できるツールだから、テンプレ複製を楽にしたいときの参考になる。
-> Thanks: https://zenn.dev/openjny/articles/2619050ec7f167 / https://zenn.dev/openjny/articles/e11450f61d067f — runSubagent の要点やオーケストレーター構成のベストプラクティスを惜しみなく公開してくれてる openjny さんに感謝！
+> **Inspiration & Thanks**
+>
+> - https://github.com/openjny/dotgh — dotgh の方が高機能だから、本格的にテンプレートを量産したい場合はそっちのツールを使うと手っ取り早いよ。
+> - https://zenn.dev/openjny/articles/4313236f8886e4 — dotgh 本体の解説記事。
+> - https://zenn.dev/openjny/articles/2619050ec7f167 — runSubagent の要点。
+> - https://zenn.dev/openjny/articles/e11450f61d067f — オーケストレーター構成のベストプラクティス。
+>
+> **Prompt Engineering Resources**
+>
+> - https://github.com/anthropics/prompt-eng-interactive-tutorial — Anthropic 公式のプロンプトエンジニアリング・インタラクティブチュートリアル。
+> - https://www.anthropic.com/engineering — Anthropic のエンジニアリングブログ。エージェント設計やプロンプト最適化のヒントが豊富。
+> - https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview — Claude プロンプトエンジニアリング公式ドキュメント。
+> - https://github.com/anthropics/anthropic-cookbook — Anthropic 公式のレシピ集。実践的なコード例が多数。
 
 ## 収録内容
 
 | パス                              | 説明                                                                                                         |
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | `.github/copilot-instructions.md` | 共有ガードレール。Copilot が最初に読み込み、回答トーンやレビュー方針を決める。                               |
-| `.github/agents/`                 | エージェント定義（`sample.agent.md`, `orchestrator.agent.md`）。新規エージェントを増やすときはこの例を複製。 |
-| `.github/instructions/`           | ドメインガイド（`git`, `terminal`, `security`, `communication`, `agent-design` + サンプル）。                |
+| `.github/agents/`                 | エージェント定義（`sample`, `orchestrator`, `workflow-designer`）。新規エージェントを増やすときはこの例を複製。 |
+| `.github/instructions/`           | ドメインガイド（`core/`, `dev/`, `agents/`, `integrations/` にカテゴリ分類）。                               |
 | `.github/prompts/`                | 再利用可能なプロンプト（`create-agent`, `review-agent`, `plan-workflow`, `design-workflow` + サンプル）。    |
 | `AGENTS.md`                       | 登録済みエージェントの目次。新しいマニフェストを追加したらここにも追記する。                                 |
 
@@ -114,13 +124,18 @@ Copilot Chat で以下のショートカットを使う：
 @workspace /prompt create-agentWF
 ```
 
-| プロンプト      | 呼び出し方                           | 用途                                                       |
-| --------------- | ------------------------------------ | ---------------------------------------------------------- |
-| create-agent    | `@workspace /prompt create-agent`    | 新規エージェント作成                                       |
-| create-agentWF  | `@workspace /prompt create-agentWF`  | エージェントワークフロー作成（ヒアリング項目リファレンス） |
-| review-agent    | `@workspace /prompt review-agent`    | エージェント定義のレビュー・改善                           |
-| plan-workflow   | `@workspace /prompt plan-workflow`   | タスク実行計画                                             |
-| design-workflow | `@workspace /prompt design-workflow` | ワークフロー設計                                           |
+| プロンプト                        | 呼び出し方                                         | 用途                                                       |
+| ------------------------------- | -------------------------------------------------- | ---------------------------------------------------------- |
+| create-agent                    | `@workspace /prompt create-agent`                  | 新規エージェント作成                                       |
+| create-agentWF                  | `@workspace /prompt create-agentWF`                | エージェントワークフロー作成（ヒアリング項目リファレンス） |
+| review-agent                    | `@workspace /prompt review-agent`                  | エージェント定義のレビュー・改善                           |
+| plan-workflow                   | `@workspace /prompt plan-workflow`                 | タスク実行計画                                             |
+| design-workflow                 | `@workspace /prompt design-workflow`               | ワークフロー設計                                           |
+| review-retrospective-learnings  | `@workspace /prompt review-retrospective-learnings`| 振り返りと学びの抽出                                       |
+| gc_Commit                       | `@workspace /prompt gc_Commit`                     | 変更をコミット                                             |
+| gcp_Commit_Push                 | `@workspace /prompt gcp_Commit_Push`               | コミットしてプッシュ                                         |
+| gpull                           | `@workspace /prompt gpull`                         | リモートからプル                                           |
+| sample                          | `@workspace /prompt sample`                        | プロンプト作成用テンプレート                               |
 
 ### 推奨フロー
 
