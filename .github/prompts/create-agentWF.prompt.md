@@ -132,7 +132,7 @@
 3. **レポートテンプレート** (必要に応じて)
 4. **AGENTS.md への追記**
 
-作成を開始していい？
+作成を開始していい？✨
 ```
 
 ---
@@ -177,7 +177,7 @@ template:
 
 ## 出力フォーマット
 
-ヒアリング完了後、各エージェントは以下の構造で作成：
+ヒアリング完了後、各エージェントは以下の構造で作成するよ〜📝
 
 ```chatagent
 # {{Agent Name}}
@@ -212,6 +212,8 @@ template:
 ---
 
 ## 参照ドキュメント
+
+困ったらこれを見てね〜💕
 
 - [Agent Design Instructions](../instructions/agent-design.instructions.md)
 - [Orchestrator Agent Example](../agents/orchestrator.agent.md)
