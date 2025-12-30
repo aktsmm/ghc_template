@@ -49,10 +49,10 @@
 
 ## References
 
-- [Git Rules](../instructions/git.instructions.md)
-- [Terminal Rules](../instructions/terminal.instructions.md)
-- [Agent Design Rules](../instructions/agent-design.instructions.md)
-- [Security Rules](../instructions/security.instructions.md)
+- [Git Rules](../instructions/dev/git.instructions.md)
+- [Terminal Rules](../instructions/dev/terminal.instructions.md)
+- [Agent Design Rules](../instructions/agents/agent-design.instructions.md)
+- [Security Rules](../instructions/core/security.instructions.md)
 
 ## Workflow
 

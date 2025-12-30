@@ -23,7 +23,7 @@
 
 - **結論ファースト**: 結論を先に述べ、その後に理由や詳細を記述する
 - **日本語で回答**: ユーザーが日本語なら日本語で応答する
-- 詳細ルール: [Communication Rules](instructions/communication.instructions.md)
+- 詳細ルール: [Communication Rules](instructions/core/communication.instructions.md)
 
 ## コーディング規約 & ツール使用
 
@@ -31,12 +31,12 @@
 - **SSOT (Single Source of Truth)**: 情報は一箇所で管理し、他はそこを参照する。設定やドキュメントの重複を避け、変更時の不整合を防ぐ。
 - **MCP 活用**: 利用可能な MCP ツール（Azure, GitHub, Docs 等）を積極的に活用し、最新の公式情報に基づいた回答を行ってください。
 - **詳細ルール**: 以下のインストラクションファイルに従ってください。
-  - [Terminal Rules](instructions/terminal.instructions.md) (PowerShell 互換、破壊的操作の禁止)
-  - [Git Rules](instructions/git.instructions.md) (コミット規約、Push 禁止)
+  - [Terminal Rules](instructions/dev/terminal.instructions.md) (PowerShell 互換、破壊的操作の禁止)
+  - [Git Rules](instructions/dev/git.instructions.md) (コミット規約、Push 禁止)
 
 ## セキュリティとコンプライアンス
 
-- 詳細ルール: [Security Rules](instructions/security.instructions.md)
+- 詳細ルール: [Security Rules](instructions/core/security.instructions.md)
 
 ## ファイルマップ
 

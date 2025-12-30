@@ -66,7 +66,7 @@ architecture:
 
 ## References
 
-- [Agent Design Instructions](../instructions/agent-design.instructions.md)
+- [Agent Design Instructions](../instructions/agents/agent-design.instructions.md)
 - [Orchestrator Agent Example](./orchestrator.agent.md)
 - [Sample Agent Template](./sample.agent.md)
 - [Workflow Prompt Reference](../prompts/create-agentWF.prompt.md)
@@ -144,5 +144,7 @@ User: PR のコードを自動レビューしたい
 User: ソースコードから API 仕様書を自動生成したい
 → ヒアリング → IR 生成 → エージェント定義生成
 結果: api-doc-generator.agent.md + 仕様書テンプレート
+
+```
 
 ```

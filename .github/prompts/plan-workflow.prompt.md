@@ -5,7 +5,7 @@
 ## 前提条件
 
 - 参照: `AGENTS.md` (利用可能なエージェント一覧)
-- 参照: `.github/instructions/agent-design.instructions.md` (設計原則)
+- 参照: `.github/instructions/agents/agent-design.instructions.md` (設計原則)
 
 ## 指示
 

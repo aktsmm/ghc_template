@@ -5,7 +5,7 @@
 
 ## 前提条件
 
-- 参照: `.github/instructions/agent-design.instructions.md` (設計原則)
+- 参照: `.github/instructions/agents/agent-design.instructions.md` (設計原則)
 - 参照: `.github/agents/sample.agent.md` (テンプレート)
 
 ## 指示
@@ -34,8 +34,8 @@
 
 ## References
 
-- [Git Rules](../instructions/git.instructions.md)
-- [Terminal Rules](../instructions/terminal.instructions.md)
+- [Git Rules](../instructions/dev/git.instructions.md)
+- [Terminal Rules](../instructions/dev/terminal.instructions.md)
 
 ## Workflow
 

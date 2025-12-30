@@ -113,7 +113,7 @@
 ✅ **フェイルセーフ**: エラー時の対応を明記
 ✅ **可観測性**: ログと進捗報告を含める
 
-参照: [Agent Design Instructions](../instructions/agent-design.instructions.md)
+参照: [Agent Design Instructions](../instructions/agents/agent-design.instructions.md)
 
 これでOK？何か変更したい点があれば教えてね〜
 ```
@@ -215,7 +215,7 @@ template:
 
 困ったらこれを見てね〜💕
 
-- [Agent Design Instructions](../instructions/agent-design.instructions.md)
+- [Agent Design Instructions](../instructions/agents/agent-design.instructions.md)
 - [Orchestrator Agent Example](../agents/orchestrator.agent.md)
 - [Sample Agent Template](../agents/sample.agent.md)
 
