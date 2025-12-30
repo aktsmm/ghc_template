@@ -28,6 +28,7 @@
 | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
 | [git.instructions.md](.github/instructions/dev/git.instructions.md)                                | Git コミット規約（Conventional Commits、Push 禁止）            |
 | [terminal.instructions.md](.github/instructions/dev/terminal.instructions.md)                      | ターミナル操作規約（PowerShell 互換、破壊的操作の注意）        |
+| [python.instructions.md](.github/instructions/dev/python.instructions.md)                          | Python 環境設定（仮想環境必須、uv 推奨）                       |
 | [agent-design.instructions.md](.github/instructions/agents/agent-design.instructions.md)           | エージェント設計原則（単一責任、冪等性、オーケストレーション） |
 | [security.instructions.md](.github/instructions/core/security.instructions.md)                     | セキュリティガイドライン（機密情報、外部 API、入力検証）       |
 | [communication.instructions.md](.github/instructions/core/communication.instructions.md)           | コミュニケーションスタイル（結論ファースト、言語設定）         |

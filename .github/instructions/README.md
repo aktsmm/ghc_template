@@ -12,7 +12,8 @@ instructions/
 │   └── security.instructions.md           # セキュリティガイドライン
 ├── dev/                                   # 開発ツール系
 │   ├── git.instructions.md                # Git操作規約
-│   └── terminal.instructions.md           # ターミナル操作規約
+│   ├── terminal.instructions.md           # ターミナル操作規約
+│   └── python.instructions.md             # Python環境設定
 ├── agents/                                # エージェント設計系
 │   └── agent-design.instructions.md       # 設計原則
 └── integrations/                          # 外部連携系

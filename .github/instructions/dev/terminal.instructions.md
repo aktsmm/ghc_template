@@ -38,6 +38,34 @@ git status
 - 複数のコマンドを連結する場合は `;` を使用してください（`&&` は使用しない）。
 - パイプライン `|` を活用し、オブジェクトベースのデータ操作を行ってください。
 
+### PowerShell 特有の注意事項
+
+| Bash/Linux | PowerShell | 備考 |
+|------------|------------|------|
+| `&&` | `;` | コマンド連結（`;` は前のコマンドの成否に関わらず実行） |
+| `\|\|` | `; if ($?) { } else { }` | 条件分岐は `$?` で直前のコマンド成否を確認 |
+| `export VAR=value` | `$env:VAR = "value"` | 環境変数の設定 |
+| `echo $VAR` | `$env:VAR` または `Write-Output` | 環境変数の参照 |
+| `cat file` | `Get-Content file` | ファイル内容の表示 |
+| `grep pattern` | `Select-String -Pattern pattern` | テキスト検索 |
+| `find . -name "*.py"` | `Get-ChildItem -Recurse -Filter "*.py"` | ファイル検索 |
+| `rm -rf dir` | `Remove-Item -Recurse -Force dir` | ディレクトリ削除 |
+| `/dev/null` | `$null` | 出力の破棄（**`/dev/null` は使用禁止**） |
+
+### よくある間違い
+
+```powershell
+# ❌ NG: Bash構文
+command1 && command2
+export MY_VAR="hello"
+cat file.txt | grep "pattern"
+
+# ✅ OK: PowerShell構文
+command1; command2
+$env:MY_VAR = "hello"
+Get-Content file.txt | Select-String -Pattern "pattern"
+```
+
 ## 3. 破壊的操作の慎重な実行
 
 - ファイルの削除 (`rm`, `Remove-Item`) や移動 (`mv`) は、対象を間違えると復旧困難になるため、実行前に必ずパスを確認してください。
