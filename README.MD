@@ -18,13 +18,13 @@
 
 ## 収録内容
 
-| パス                              | 説明                                                                                                         |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| `.github/copilot-instructions.md` | 共有ガードレール。Copilot が最初に読み込み、回答トーンやレビュー方針を決める。                               |
+| パス                              | 説明                                                                                                            |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `.github/copilot-instructions.md` | 共有ガードレール。Copilot が最初に読み込み、回答トーンやレビュー方針を決める。                                  |
 | `.github/agents/`                 | エージェント定義（`sample`, `orchestrator`, `workflow-designer`）。新規エージェントを増やすときはこの例を複製。 |
-| `.github/instructions/`           | ドメインガイド（`core/`, `dev/`, `agents/`, `integrations/` にカテゴリ分類）。                               |
-| `.github/prompts/`                | 再利用可能なプロンプト（`create-agent`, `review-agent`, `plan-workflow`, `design-workflow` + サンプル）。    |
-| `AGENTS.md`                       | 登録済みエージェントの目次。新しいマニフェストを追加したらここにも追記する。                                 |
+| `.github/instructions/`           | ドメインガイド（`core/`, `dev/`, `agents/`, `integrations/` にカテゴリ分類）。                                  |
+| `.github/prompts/`                | 再利用可能なプロンプト（`create-agent`, `review-agent`, `plan-workflow`, `design-workflow` + サンプル）。       |
+| `AGENTS.md`                       | 登録済みエージェントの目次。新しいマニフェストを追加したらここにも追記する。                                    |
 
 ## 使い方
 
@@ -124,18 +124,18 @@ Copilot Chat で以下のショートカットを使う：
 @workspace /prompt create-agentWF
 ```
 
-| プロンプト                        | 呼び出し方                                         | 用途                                                       |
-| ------------------------------- | -------------------------------------------------- | ---------------------------------------------------------- |
-| create-agent                    | `@workspace /prompt create-agent`                  | 新規エージェント作成                                       |
-| create-agentWF                  | `@workspace /prompt create-agentWF`                | エージェントワークフロー作成（ヒアリング項目リファレンス） |
-| review-agent                    | `@workspace /prompt review-agent`                  | エージェント定義のレビュー・改善                           |
-| plan-workflow                   | `@workspace /prompt plan-workflow`                 | タスク実行計画                                             |
-| design-workflow                 | `@workspace /prompt design-workflow`               | ワークフロー設計                                           |
-| review-retrospective-learnings  | `@workspace /prompt review-retrospective-learnings`| 振り返りと学びの抽出                                       |
-| gc_Commit                       | `@workspace /prompt gc_Commit`                     | 変更をコミット                                             |
-| gcp_Commit_Push                 | `@workspace /prompt gcp_Commit_Push`               | コミットしてプッシュ                                         |
-| gpull                           | `@workspace /prompt gpull`                         | リモートからプル                                           |
-| sample                          | `@workspace /prompt sample`                        | プロンプト作成用テンプレート                               |
+| プロンプト                     | 呼び出し方                                          | 用途                                                       |
+| ------------------------------ | --------------------------------------------------- | ---------------------------------------------------------- |
+| create-agent                   | `@workspace /prompt create-agent`                   | 新規エージェント作成                                       |
+| create-agentWF                 | `@workspace /prompt create-agentWF`                 | エージェントワークフロー作成（ヒアリング項目リファレンス） |
+| review-agent                   | `@workspace /prompt review-agent`                   | エージェント定義のレビュー・改善                           |
+| plan-workflow                  | `@workspace /prompt plan-workflow`                  | タスク実行計画                                             |
+| design-workflow                | `@workspace /prompt design-workflow`                | ワークフロー設計                                           |
+| review-retrospective-learnings | `@workspace /prompt review-retrospective-learnings` | 振り返りと学びの抽出                                       |
+| gc_Commit                      | `@workspace /prompt gc_Commit`                      | 変更をコミット                                             |
+| gcp_Commit_Push                | `@workspace /prompt gcp_Commit_Push`                | コミットしてプッシュ                                       |
+| gpull                          | `@workspace /prompt gpull`                          | リモートからプル                                           |
+| sample                         | `@workspace /prompt sample`                         | プロンプト作成用テンプレート                               |
 
 ### 推奨フロー
 
