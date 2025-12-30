@@ -146,5 +146,3 @@ User: ソースコードから API 仕様書を自動生成したい
 結果: api-doc-generator.agent.md + 仕様書テンプレート
 
 ```
-
-```
