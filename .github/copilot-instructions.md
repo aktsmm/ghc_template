@@ -38,6 +38,15 @@
 
 - 詳細ルール: [Security Rules](instructions/core/security.instructions.md)
 
+## Skills の活用
+
+プロンプト / エージェント / インストラクションを作成・編集する際は、以下の Skills を参照してください。
+
+| Skill | 用途 | トリガー |
+|-------|------|----------|
+| [agentic-workflow-guide](skills/agentic-workflow-guide/SKILL.md) | ワークフロー設計・レビュー・改善 | `.github/` 配下のファイル編集、エージェント設計時 |
+| [skill-finder](skills/skill-finder/SKILL.md) | Skills の検索・インストール・管理 | 新しい Skill を探すとき |
+
 ## ファイルマップ
 
 エージェント一覧・関連アセットの詳細は [AGENTS.md](../AGENTS.md) を参照してください。
