@@ -1,0 +1,20 @@
+{
+  // Copilot Chat: コマンド自動承認リスト（最小限・読み取り専用）
+  // 必要に応じてプロジェクトごとにカスタマイズしてください
+  "github.copilot.chat.commandApproval.allowList": {
+    "shell": [
+      // === PowerShell: 読み取り専用 ===
+      "Get-Location",
+      "Get-ChildItem*",
+      "Get-Content*",
+      "Test-Path*",
+
+      // === Git: 読み取り専用 ===
+      "git status*",
+      "git log*",
+      "git diff*",
+      "git branch*",
+      "git config*"
+    ]
+  }
+}
