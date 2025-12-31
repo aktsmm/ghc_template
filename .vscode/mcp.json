@@ -5,7 +5,7 @@
       "url": "https://learn.microsoft.com/api/mcp"
     },
     "azure-updates": {
-      "command": "node",
+      "command": "C:\\Program Files\\nodejs\\node.exe",
       "args": ["D:\\azure-updates-mcp-server\\dist\\index.js"],
       "env": {
         "SYNC_STALENESS_HOURS": "24",
