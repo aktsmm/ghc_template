@@ -33,6 +33,13 @@
 - **詳細ルール**: 以下のインストラクションファイルに従ってください。
   - [Terminal Rules](instructions/dev/terminal.instructions.md) (PowerShell 互換、破壊的操作の禁止)
   - [Git Rules](instructions/dev/git.instructions.md) (コミット規約、Push 禁止)
+  - [Python Rules](instructions/dev/python.instructions.md) (仮想環境必須、uv 推奨)
+  - [Node.js Rules](instructions/dev/nodejs.instructions.md) (nvm 推奨、パッケージマネージャー)
+  - [Microsoft Docs](instructions/integrations/microsoft-docs.instructions.md) (MCP 連携、ソース明記)
+
+## エージェント設計
+
+- 詳細ルール: [Agent Design](instructions/agents/agent-design.instructions.md)
 
 ## セキュリティとコンプライアンス
 

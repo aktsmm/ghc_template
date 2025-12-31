@@ -8,8 +8,8 @@ Read the following files before reviewing:
 
 - [ ] `README.md` — Project overview and purpose
 - [ ] `AGENTS.md` — Agent registry and role definitions
-- [ ] `.github/agents/*.agent.md` — All agent definitions
-- [ ] `.github/instructions/*.md` — Shared rules and constraints
+- [ ] `.github/agents/*.agent.md` — Agent definitions
+- [ ] `.github/instructions/**/*.md` — Shared rules and constraints
 - [ ] `.github/copilot-instructions.md` — Global guardrails
 
 ## Design Principles Checklist
@@ -36,11 +36,21 @@ Read the following files before reviewing:
 
 ## Cross-Reference Validation
 
-- [ ] Does AGENTS.md role description match .agent.md Role section?
+- [ ] Does `AGENTS.md` role description match `.agent.md` Role section?
 - [ ] Are prohibited operations (from instructions) not granted in Permissions?
-- [ ] No duplicate information between AGENTS.md and .agent.md? (SSOT)
-- [ ] Does workflow align with project context described in README.md?
+- [ ] No duplicate information between `AGENTS.md` and `.agent.md`? (SSOT)
+- [ ] Does workflow align with project context described in `README.md`?
 - [ ] Does workflow respect dependencies defined in other agents?
+
+## Orphan Detection
+
+Check that assets are properly referenced:
+
+- [ ] `.github/instructions/**/*.instructions.md` → Referenced from `copilot-instructions.md`?
+- [ ] `.github/instructions/**/*.instructions.md` → Listed in `AGENTS.md` Instructions table?
+- [ ] `.github/instructions/README.md` → Tree structure matches actual files?
+- [ ] `.github/prompts/*.prompt.md` → Listed in `README.md` prompts table?
+- [ ] `.github/agents/*.agent.md` → Listed in `AGENTS.md` agents table?
 
 ## Output Format
 

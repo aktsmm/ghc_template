@@ -23,7 +23,9 @@
 | `.github/copilot-instructions.md` | 共有ガードレール。Copilot が最初に読み込み、回答トーンやレビュー方針を決める。                                  |
 | `.github/agents/`                 | エージェント定義（`sample`, `orchestrator`, `workflow-designer`）。新規エージェントを増やすときはこの例を複製。 |
 | `.github/instructions/`           | ドメインガイド（`core/`, `dev/`, `agents/`, `integrations/` にカテゴリ分類）。                                  |
-| `.github/prompts/`                | 再利用可能なプロンプト（`create-agent`, `review-agent`, `plan-workflow`, `design-workflow` + サンプル）。       |
+| `.github/prompts/`                | 再利用可能なプロンプト（ワークフロー設計、デバッグ、テスト生成、Git 操作など）。                                |
+| `.github/skills/`                 | エージェント用 Skills（`agentic-workflow-guide`, `skill-finder`）。                                             |
+| `.vscode/settings.json`           | Copilot コマンド自動承認リスト（最小限・読み取り専用）。プロジェクトごとにカスタマイズ。                        |
 | `AGENTS.md`                       | 登録済みエージェントの目次。新しいマニフェストを追加したらここにも追記する。                                    |
 
 ## 使い方
@@ -131,6 +133,8 @@ Copilot Chat で以下のショートカットを使う：
 | review-agent                   | `@workspace /prompt review-agent`                   | エージェント定義のレビュー・改善                           |
 | plan-workflow                  | `@workspace /prompt plan-workflow`                  | タスク実行計画                                             |
 | design-workflow                | `@workspace /prompt design-workflow`                | ワークフロー設計                                           |
+| debug-error                    | `@workspace /prompt debug-error`                    | エラー分析・原因特定・解決                                 |
+| write-tests                    | `@workspace /prompt write-tests`                    | テスト生成（計画 → 実装 → 検証）                           |
 | review-retrospective-learnings | `@workspace /prompt review-retrospective-learnings` | 振り返りと学びの抽出                                       |
 | gc_Commit                      | `@workspace /prompt gc_Commit`                      | 変更をコミット                                             |
 | gcp_Commit_Push                | `@workspace /prompt gcp_Commit_Push`                | コミットしてプッシュ                                       |
