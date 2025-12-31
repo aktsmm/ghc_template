@@ -4,6 +4,7 @@
 
 ## 手順
 
+0. 正しいディレクトリにいることを確認
 1. VS Code コマンド `workbench.action.files.saveAll` で未保存ファイルを保存
 2. `git config user.name` でコミットユーザー名を確認（出力例に表示用）
 3. `git add .` で新規ファイルを含むすべての変更をステージング
