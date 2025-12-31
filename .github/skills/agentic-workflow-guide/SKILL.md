@@ -9,6 +9,7 @@ A comprehensive guide for designing, reviewing, and improving agent workflows ba
 
 ## When to Use
 
+- **`.github/` 配下の編集** - prompts/, instructions/, agents/ などを作成・編集するとき
 - **New Workflow Design** - Define agent roles, responsibilities, and execution order
 - **Workflow Review** - Detect issues by checking against design principles
 - **Pattern Selection** - Choose the right workflow pattern for your task
