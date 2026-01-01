@@ -5,11 +5,16 @@ and reflect them in design assets for prevention and quality improvement.
 
 ## Input
 
+**Required (at least one):**
+
 - Response history (timeline, logs, error messages, fixes)
-- Terminal history (commands executed, outputs, errors)
 - Git changes (diff, commit messages)
 - **Chat context (conversation history, Q&A exchanges, problem-solving threads)**
-- Scope of reflection (Agents.md / \*.agent.md / instructions)
+
+**Optional:**
+
+- Terminal history (commands executed, outputs, errors)
+- Scope of reflection (Agents.md / \*.agent.md / instructions) — defaults to all
 
 ## Steps
 
@@ -41,6 +46,12 @@ Identify insights at these levels:
 - Workflow (call order, preconditions, error handling)
 - Prompt patterns (effective phrasing, tool usage)
 
+**If no learnings found:**
+
+- Verify input data is sufficient
+- Consider if the scope is too narrow
+- Report "No actionable learnings identified" and **stop here**
+
 Format: `Learning` → `Evidence` → `Impact`
 
 **Example:**
@@ -52,6 +63,13 @@ Impact: Add "numbered steps" pattern to prompt guidelines
 ```
 
 ### Step 2: Decide Action & Target
+
+**Priority:**
+| Impact | Recurrence Risk | Priority |
+|--------|-----------------|----------|
+| High | High | 🔴 P1 |
+| High | Low | 🟡 P2 |
+| Low | Any | 🟢 P3 |
 
 **Action decision:**
 | Frequency | Severity | Action |
@@ -73,11 +91,11 @@ Impact: Add "numbered steps" pattern to prompt guidelines
 
 Show exact content to add/replace in code blocks.
 
-Verify before proposing:
+**Gate criteria (all must pass):**
 
-- No duplicate rules
-- Consistent with existing design
-- Minimal and focused change
+- [ ] No duplicate rules → verified via grep search
+- [ ] Consistent with existing design → cross-referenced AGENTS.md
+- [ ] Minimal and focused change → each change < 20 lines (if larger, split)
 
 ## Output Format
 
@@ -86,13 +104,26 @@ Verify before proposing:
 
 ## Learnings
 
-- **Learning**: [What was learned]
-  - Evidence: [What happened]
-  - Action: [Generalize / Individual / Strengthen] → [target file]
+1. **Learning**: [What was learned]
+
+   - Evidence: [What happened]
+   - Action: → [target file]
+
+2. **Learning**: [Next learning]
+   - Evidence: ...
+   - Action: → [target]
 
 ## Changes
 
 \`\`\`markdown
 [Exact content to add/replace]
 \`\`\`
+
+## Review Checkpoint
+
+Before applying changes:
+
+- [ ] User approved proposed changes
+- [ ] No conflicts with existing rules verified
+- [ ] Target files are writable
 ```
