@@ -87,17 +87,19 @@ Impact: Add "numbered steps" pattern to prompt guidelines
 | Workflow rule | .github/instructions/\*.md |
 | Prompt pattern | .github/prompts/\*.prompt.md |
 
-### Step 3: Propose Changes
+### Step 3: Validate & Prepare
 
-Show exact content to add/replace in code blocks.
-
-**Gate criteria (all must pass):**
+**Gate criteria (all must pass before output):**
 
 - [ ] No duplicate rules → verified via grep search
 - [ ] Consistent with existing design → cross-referenced AGENTS.md
 - [ ] Minimal and focused change → each change < 20 lines (if larger, split)
 
+If any gate fails, fix before proceeding.
+
 ## Output Format
+
+⚠️ **Output ONCE using this format only. Do not repeat sections.**
 
 ```markdown
 # Retro: [Title]
