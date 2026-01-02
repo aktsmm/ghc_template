@@ -24,7 +24,7 @@ and reflect them in design assets for prevention and quality improvement.
    - README.md
    - AGENTS.md
    - .github/agents/\*.agent.md
-   - .github/instructions/\*.md
+   - .github/instructions/\*_/_.md
    - .github/copilot-instructions.md
 2. Summarize existing rules in 5 lines or less
 
