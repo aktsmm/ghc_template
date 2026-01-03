@@ -175,17 +175,17 @@ Copilot Chat で以下のショートカットを使う：
 
 ### 収録ソース（9 リポジトリ）
 
-| ソース | タイプ | 説明 |
-|--------|--------|------|
-| **anthropics-skills** | 🏢 Official | Anthropic 公式 Claude Skills |
-| **github-awesome-copilot** | 🏢 Official | GitHub 公式 Copilot リソース |
-| **obra-superpowers** | 👥 Community | 高品質スキル・エージェント集 |
-| **composio-awesome** | 📋 Curated | Claude Skills キュレーションリスト |
-| **context-engineering-skills** | 👥 Community | Context Engineering スキル（5k+ Stars） |
-| **pai-packs** | 👥 Community | Personal AI Infrastructure by danielmiessler |
-| **compound-engineering** | 👥 Community | Compound Engineering（3.5k+ Stars） |
-| **prps-agentic** | 👥 Community | PRP（Prompt Recipe Patterns）スキル |
-| **claude-command-suite** | 👥 Community | Claude コマンド＆スキル集 |
+| ソース                         | タイプ       | 説明                                         |
+| ------------------------------ | ------------ | -------------------------------------------- |
+| **anthropics-skills**          | 🏢 Official  | Anthropic 公式 Claude Skills                 |
+| **github-awesome-copilot**     | 🏢 Official  | GitHub 公式 Copilot リソース                 |
+| **obra-superpowers**           | 👥 Community | 高品質スキル・エージェント集                 |
+| **composio-awesome**           | 📋 Curated   | Claude Skills キュレーションリスト           |
+| **context-engineering-skills** | 👥 Community | Context Engineering スキル（5k+ Stars）      |
+| **pai-packs**                  | 👥 Community | Personal AI Infrastructure by danielmiessler |
+| **compound-engineering**       | 👥 Community | Compound Engineering（3.5k+ Stars）          |
+| **prps-agentic**               | 👥 Community | PRP（Prompt Recipe Patterns）スキル          |
+| **claude-command-suite**       | 👥 Community | Claude コマンド＆スキル集                    |
 
 ### 使い方
 
