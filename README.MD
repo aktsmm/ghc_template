@@ -24,7 +24,7 @@
 | `.github/agents/`                 | エージェント定義（`sample`, `orchestrator`, `workflow-designer`）。新規エージェントを増やすときはこの例を複製。 |
 | `.github/instructions/`           | ドメインガイド（`core/`, `dev/`, `agents/`, `integrations/` にカテゴリ分類）。                                  |
 | `.github/prompts/`                | 再利用可能なプロンプト（ワークフロー設計、デバッグ、テスト生成、Git 操作など）。                                |
-| `.github/skills/`                 | エージェント用 Skills（`agentic-workflow-guide`, `skill-finder`）。                                             |
+| `.github/skills/`                 | エージェント用 Skills（`agentic-workflow-guide`, `skill-finder` v1.7.0）。                                      |
 | `.vscode/settings.json`           | Copilot コマンド自動承認リスト（最小限・読み取り専用）。プロジェクトごとにカスタマイズ。                        |
 | `AGENTS.md`                       | 登録済みエージェントの目次。新しいマニフェストを追加したらここにも追記する。                                    |
 
@@ -166,6 +166,39 @@ Copilot Chat で以下のショートカットを使う：
 - 長文プロンプトを書く
 - `/dev/null` へのリダイレクト
 - `git push` を自動実行
+
+---
+
+## 📦 Skill Finder v1.7.0
+
+`skill-finder` はエージェント用スキルを検索・管理するツール。
+
+### 収録ソース（9 リポジトリ）
+
+| ソース | タイプ | 説明 |
+|--------|--------|------|
+| **anthropics-skills** | 🏢 Official | Anthropic 公式 Claude Skills |
+| **github-awesome-copilot** | 🏢 Official | GitHub 公式 Copilot リソース |
+| **obra-superpowers** | 👥 Community | 高品質スキル・エージェント集 |
+| **composio-awesome** | 📋 Curated | Claude Skills キュレーションリスト |
+| **context-engineering-skills** | 👥 Community | Context Engineering スキル（5k+ Stars） |
+| **pai-packs** | 👥 Community | Personal AI Infrastructure by danielmiessler |
+| **compound-engineering** | 👥 Community | Compound Engineering（3.5k+ Stars） |
+| **prps-agentic** | 👥 Community | PRP（Prompt Recipe Patterns）スキル |
+| **claude-command-suite** | 👥 Community | Claude コマンド＆スキル集 |
+
+### 使い方
+
+```powershell
+# キーワード検索
+python .github/skills/skill-finder/scripts/search_skills.py "python"
+
+# タグ検索
+python .github/skills/skill-finder/scripts/search_skills.py "#development #testing"
+
+# スキル詳細
+python .github/skills/skill-finder/scripts/search_skills.py --info test-driven-development
+```
 
 ---
 
