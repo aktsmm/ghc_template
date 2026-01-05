@@ -6,14 +6,22 @@
 
 以下のプロンプトがテンプレートに含まれています。
 
-| ファイル                            | 説明                                             |
-| ----------------------------------- | ------------------------------------------------ |
-| `create-agent.prompt.md`            | 新規エージェントを作成する                       |
-| `review-agent.prompt.md`            | 既存エージェント定義をレビュー・改善する         |
-| `plan-workflow.prompt.md`           | 複数エージェントを使ったタスク実行計画を立てる   |
-| `design-workflow.prompt.md`         | 新しいエージェントワークフローを設計する         |
+| ファイル                                   | 説明                                             |
+| ------------------------------------------ | ------------------------------------------------ |
+| `create-agent.prompt.md`                   | 新規エージェントを作成する                       |
+| `create-agentWF.prompt.md`                 | エージェントワークフロー作成（ヒアリング形式）   |
+| `review-agent.prompt.md`                   | 既存エージェント定義をレビュー・改善する         |
+| `plan-workflow.prompt.md`                  | 複数エージェントを使ったタスク実行計画を立てる   |
+| `design-workflow.prompt.md`                | 新しいエージェントワークフローを設計する         |
+| `debug-error.prompt.md`                    | エラーメッセージを分析してデバッグ支援           |
+| `write-tests.prompt.md`                    | テストコードを生成する                           |
+| `gc_Commit.prompt.md`                      | Git コミット（Push なし）                        |
+| `gcp_Commit_Push.prompt.md`                | Git コミット＆プッシュ                           |
+| `gpull.prompt.md`                          | Git プル                                         |
 | `review-retrospective-learnings.prompt.md` | 学びを抽象化して設計資産へ反映する（ふりかえり） |
-| `sample.prompt.md`                  | カスタムプロンプト作成用テンプレート             |
+| `review-session-export-json.prompt.md`     | セッション内容を YAML 形式でエクスポート         |
+| `review-session-export-md.prompt.md`       | セッション内容を Markdown 形式でエクスポート     |
+| `sample.prompt.md`                         | カスタムプロンプト作成用テンプレート             |
 
 ## カスタマイズ
 

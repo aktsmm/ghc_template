@@ -37,13 +37,22 @@
 
 ### Prompts（再利用可能なプロンプト）
 
-| ファイル                                                               | 説明                                           |
-| ---------------------------------------------------------------------- | ---------------------------------------------- |
-| [create-agent.prompt.md](.github/prompts/create-agent.prompt.md)       | 新規エージェント作成                           |
-| [create-agentWF.prompt.md](.github/prompts/create-agentWF.prompt.md)   | エージェントワークフロー作成（ヒアリング形式） |
-| [review-agent.prompt.md](.github/prompts/review-agent.prompt.md)       | エージェント定義のレビュー・改善               |
-| [plan-workflow.prompt.md](.github/prompts/plan-workflow.prompt.md)     | タスク実行計画                                 |
-| [design-workflow.prompt.md](.github/prompts/design-workflow.prompt.md) | ワークフロー設計                               |
+| ファイル                                                                                             | 説明                                           |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| [create-agent.prompt.md](.github/prompts/create-agent.prompt.md)                                     | 新規エージェント作成                           |
+| [create-agentWF.prompt.md](.github/prompts/create-agentWF.prompt.md)                                 | エージェントワークフロー作成（ヒアリング形式） |
+| [review-agent.prompt.md](.github/prompts/review-agent.prompt.md)                                     | エージェント定義のレビュー・改善               |
+| [plan-workflow.prompt.md](.github/prompts/plan-workflow.prompt.md)                                   | タスク実行計画                                 |
+| [design-workflow.prompt.md](.github/prompts/design-workflow.prompt.md)                               | ワークフロー設計                               |
+| [debug-error.prompt.md](.github/prompts/debug-error.prompt.md)                                       | エラーデバッグ支援                             |
+| [write-tests.prompt.md](.github/prompts/write-tests.prompt.md)                                       | テストコード生成                               |
+| [gc_Commit.prompt.md](.github/prompts/gc_Commit.prompt.md)                                           | Git コミット（Push なし）                      |
+| [gcp_Commit_Push.prompt.md](.github/prompts/gcp_Commit_Push.prompt.md)                               | Git コミット＆プッシュ                         |
+| [gpull.prompt.md](.github/prompts/gpull.prompt.md)                                                   | Git プル                                       |
+| [review-retrospective-learnings.prompt.md](.github/prompts/review-retrospective-learnings.prompt.md) | 学びを設計資産へ反映（ふりかえり）             |
+| [review-session-export-json.prompt.md](.github/prompts/review-session-export-json.prompt.md)         | セッションエクスポート（YAML 形式）            |
+| [review-session-export-md.prompt.md](.github/prompts/review-session-export-md.prompt.md)             | セッションエクスポート（Markdown 形式）        |
+| [sample.prompt.md](.github/prompts/sample.prompt.md)                                                 | プロンプト作成用テンプレート                   |
 
 ### その他
 
