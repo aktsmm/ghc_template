@@ -12,3 +12,6 @@ Thumbs.db
 
 # Template files (not for version control)
 LICENSE_MIT.MD
+
+# Skills (installed locally)
+.github/skills/
