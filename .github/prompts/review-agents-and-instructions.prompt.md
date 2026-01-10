@@ -1,6 +1,6 @@
 # Prompt: Review Agents & Instructions
 
-Prompt for reviewing agent definitions (.agent.md) and instruction files (.github/instructions/**/*.md) with cross-reference validation against project assets.
+Prompt for reviewing agent definitions (.agent.md) and instruction files (.github/instructions/\*_/_.md) with cross-reference validation against project assets.
 
 ## Step 0: Context Collection (Do First)
 
@@ -10,6 +10,7 @@ Read the following files before reviewing:
 - [ ] `AGENTS.md` — Agent registry and role definitions
 - [ ] `.github/agents/*.agent.md` — All agent definitions
 - [ ] `.github/instructions/**/*.md` — Shared rules and constraints
+- [ ] `.github/prompts/*.prompt.md` — Prompt files
 - [ ] `.github/copilot-instructions.md` — Global guardrails
 
 ## Design Principles Checklist
@@ -61,6 +62,26 @@ Read the following files before reviewing:
 - [ ] Each file under 200 lines? (Consider splitting if exceeded)
 - [ ] Template sections separated into dedicated files?
 - [ ] Proper balance between explanations and references?
+
+## Prompt File Review (`.github/prompts/*.prompt.md`)
+
+### Unused/Obsolete Detection
+
+- [ ] Is each prompt file actively used in the workflow?
+- [ ] Are there sample/template files that should be removed? (e.g., `sample.prompt.md`, `system.prompt.md`)
+- [ ] Does the prompt content align with the current instructions it references?
+
+### SSOT Validation
+
+- [ ] No duplicate content between prompts and instructions? (prompts should reference, not duplicate)
+- [ ] Templates in prompts match the authoritative version in instructions?
+- [ ] If a prompt duplicates an instruction's `applyTo` scope, consider deletion
+
+### Consistency Check
+
+- [ ] File references in prompts point to existing files?
+- [ ] Output format examples match current project conventions?
+- [ ] MCP tool names are correct?
 
 ## Output Format
 
