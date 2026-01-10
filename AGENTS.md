@@ -57,3 +57,16 @@
 ### その他
 
 - `.vscode/mcp.json` — VS Code MCP クライアントモードとの対応表
+
+<!-- skill-ninja-START -->
+
+## Installed Skills
+
+The following skills are available in this workspace.
+
+| Skill                                                                    | When to Use                                                                           |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- |
+| [Agentic Workflow Guide](.github/skills/Agentic Workflow Guide/SKILL.md) | **`.github/` 配下の編集** - prompts/, instructions/, agents/ などを作成・編集するとき |
+| [Skill Finder](.github/skills/Skill Finder/SKILL.md)                     | Looking for skills for a specific task or domain                                      |
+
+<!-- skill-ninja-END -->
