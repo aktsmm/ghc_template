@@ -45,11 +45,24 @@ Read the following files before reviewing:
 
 ## Instructions File Review (`.github/instructions/**/*.md`)
 
-### SSOT Validation
+### SSOT Validation（ファイル間）
 
 - [ ] No duplicate definitions (e.g., page allocation tables, keyword guidelines) across multiple files?
 - [ ] Definitions consolidated in one place with references elsewhere?
 - [ ] No rule duplication between AGENTS.md and instructions?
+
+### SSOT Validation（ファイル内）
+
+- [ ] Same concept defined only once within a single file? (e.g., Idempotency section appearing twice)
+- [ ] No redundant sections explaining the same logic? (e.g., "Workflow" + "Judgment Logic" + "Summary" all describing the same flow)
+- [ ] No duplicate code examples illustrating the same pattern?
+
+### Redundancy Check（冗長表現）
+
+- [ ] Code examples ≤ 10 lines each? (longer examples → move to external file or simplify)
+- [ ] ASCII art diagrams not duplicating text explanations? (keep one, remove the other)
+- [ ] No excessive inline templates? (use references to instruction files instead)
+- [ ] Agent file ≤ 300 lines? (consider splitting if exceeded)
 
 ### Consistency Check
 
