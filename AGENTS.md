@@ -4,11 +4,10 @@
 
 > `sample.agent.md` が最小構成の例、`orchestrator.agent.md` がオーケストレーター構成の例です。テンプレ用途で増やすときはここに行を追加してください。
 
-| エージェント名     | マニフェスト                                | 主な役割                                           |
-| ------------------ | ------------------------------------------- | -------------------------------------------------- |
-| Sample Agent       | `.github/agents/sample.agent.md`            | エージェント定義のテンプレート                     |
-| Orchestrator Agent | `.github/agents/orchestrator.agent.md`      | サブエージェントを統括する司令塔の例               |
-| Workflow Designer  | `.github/agents/workflow-designer.agent.md` | ワークフロー設計をヒアリングで支援するエージェント |
+| エージェント名     | マニフェスト                           | 主な役割                             |
+| ------------------ | -------------------------------------- | ------------------------------------ |
+| Sample Agent       | `.github/agents/sample.agent.md`       | エージェント定義のテンプレート       |
+| Orchestrator Agent | `.github/agents/orchestrator.agent.md` | サブエージェントを統括する司令塔の例 |
 
 ## 使い方
 
@@ -37,36 +36,17 @@
 
 ### Prompts（再利用可能なプロンプト）
 
-| ファイル                                                                                             | 説明                                           |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
-| [create-agent.prompt.md](.github/prompts/create-agent.prompt.md)                                     | 新規エージェント作成                           |
-| [create-agentWF.prompt.md](.github/prompts/create-agentWF.prompt.md)                                 | エージェントワークフロー作成（ヒアリング形式） |
-| [review-agent.prompt.md](.github/prompts/review-agent.prompt.md)                                     | エージェント定義のレビュー・改善               |
-| [plan-workflow.prompt.md](.github/prompts/plan-workflow.prompt.md)                                   | タスク実行計画                                 |
-| [design-workflow.prompt.md](.github/prompts/design-workflow.prompt.md)                               | ワークフロー設計                               |
-| [debug-error.prompt.md](.github/prompts/debug-error.prompt.md)                                       | エラーデバッグ支援                             |
-| [write-tests.prompt.md](.github/prompts/write-tests.prompt.md)                                       | テストコード生成                               |
-| [gc_Commit.prompt.md](.github/prompts/gc_Commit.prompt.md)                                           | Git コミット（Push なし）                      |
-| [gcp_Commit_Push.prompt.md](.github/prompts/gcp_Commit_Push.prompt.md)                               | Git コミット＆プッシュ                         |
-| [gpull.prompt.md](.github/prompts/gpull.prompt.md)                                                   | Git プル                                       |
-| [review-retrospective-learnings.prompt.md](.github/prompts/review-retrospective-learnings.prompt.md) | 学びを設計資産へ反映（ふりかえり）             |
-| [review-session-export-json.prompt.md](.github/prompts/review-session-export-json.prompt.md)         | セッションエクスポート（YAML 形式）            |
-| [review-session-export-md.prompt.md](.github/prompts/review-session-export-md.prompt.md)             | セッションエクスポート（Markdown 形式）        |
-| [sample.prompt.md](.github/prompts/sample.prompt.md)                                                 | プロンプト作成用テンプレート                   |
-
-### その他
-
-- `.vscode/mcp.json` — VS Code MCP クライアントモードとの対応表
-
-<!-- skill-ninja-START -->
-
-## Installed Skills
-
-The following skills are available in this workspace.
-
-| Skill                                                                    | When to Use                                                                           |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- |
-| [Agentic Workflow Guide](.github/skills/Agentic Workflow Guide/SKILL.md) | **`.github/` 配下の編集** - prompts/, instructions/, agents/ などを作成・編集するとき |
-| [Skill Finder](.github/skills/Skill Finder/SKILL.md)                     | Looking for skills for a specific task or domain                                      |
-
-<!-- skill-ninja-END -->
+| ファイル                                                                                             | 説明                                    |
+| ---------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| [create-workflow.prompt.md](.github/prompts/create-workflow.prompt.md)                               | エージェント/ワークフロー作成（統合版） |
+| [review-agents-and-instructions.prompt.md](.github/prompts/review-agents-and-instructions.prompt.md) | エージェント・instructions のレビュー   |
+| [plan-workflow.prompt.md](.github/prompts/plan-workflow.prompt.md)                                   | タスク実行計画                          |
+| [design-workflow.prompt.md](.github/prompts/design-workflow.prompt.md)                               | ワークフロー設計                        |
+| [debug-error.prompt.md](.github/prompts/debug-error.prompt.md)                                       | エラーデバッグ支援                      |
+| [write-tests.prompt.md](.github/prompts/write-tests.prompt.md)                                       | テストコード生成                        |
+| [gc_Commit.prompt.md](.github/prompts/gc_Commit.prompt.md)                                           | Git コミット（Push なし）               |
+| [gcp_Commit_Push.prompt.md](.github/prompts/gcp_Commit_Push.prompt.md)                               | Git コミット＆プッシュ                  |
+| [gpull.prompt.md](.github/prompts/gpull.prompt.md)                                                   | Git プル                                |
+| [review-retrospective-learnings.prompt.md](.github/prompts/review-retrospective-learnings.prompt.md) | 学びを設計資産へ反映（ふりかえり）      |
+| [review-session-export-md.prompt.md](.github/prompts/review-session-export-md.prompt.md)             | セッションエクスポート（Markdown）      |
+| [sample.prompt.md](.github/prompts/sample.prompt.md)                                                 | プロンプト作成用テンプレート            |

@@ -24,8 +24,6 @@
 | `.github/agents/`                 | エージェント定義（`sample`, `orchestrator`, `workflow-designer`）。新規エージェントを増やすときはこの例を複製。 |
 | `.github/instructions/`           | ドメインガイド（`core/`, `dev/`, `agents/`, `integrations/` にカテゴリ分類）。                                  |
 | `.github/prompts/`                | 再利用可能なプロンプト（ワークフロー設計、デバッグ、テスト生成、Git 操作など）。                                |
-| `.github/skills/`                 | エージェント用 Skills（`agentic-workflow-guide`, `skill-finder` v1.7.0）。                                      |
-| `.vscode/settings.json`           | Copilot コマンド自動承認リスト（最小限・読み取り専用）。プロジェクトごとにカスタマイズ。                        |
 | `AGENTS.md`                       | 登録済みエージェントの目次。新しいマニフェストを追加したらここにも追記する。                                    |
 
 ## 使い方
@@ -109,42 +107,41 @@
 Copilot Chat で以下のショートカットを使う：
 
 ```
-@workspace /agent workflow-designer
+@workspace /agent sample
 ```
 
-| エージェント      | 呼び出し方                            | 用途                                       |
-| ----------------- | ------------------------------------- | ------------------------------------------ |
-| Workflow Designer | `@workspace /agent workflow-designer` | ワークフロー設計をヒアリング形式でサポート |
-| Sample Agent      | `@workspace /agent sample`            | エージェント定義のテンプレート確認         |
-| Orchestrator      | `@workspace /agent orchestrator`      | 複数エージェントを統括する司令塔の例       |
+| エージェント | 呼び出し方                       | 用途                                 |
+| ------------ | -------------------------------- | ------------------------------------ |
+| Sample Agent | `@workspace /agent sample`       | エージェント定義のテンプレート確認   |
+| Orchestrator | `@workspace /agent orchestrator` | 複数エージェントを統括する司令塔の例 |
 
 ### プロンプトを呼び出す
 
 Copilot Chat で以下のショートカットを使う：
 
 ```
-@workspace /prompt create-agentWF
+@workspace /prompt create-workflow
 ```
 
-| プロンプト                     | 呼び出し方                                          | 用途                                                       |
-| ------------------------------ | --------------------------------------------------- | ---------------------------------------------------------- |
-| create-agent                   | `@workspace /prompt create-agent`                   | 新規エージェント作成                                       |
-| create-agentWF                 | `@workspace /prompt create-agentWF`                 | エージェントワークフロー作成（ヒアリング項目リファレンス） |
-| review-agent                   | `@workspace /prompt review-agent`                   | エージェント定義のレビュー・改善                           |
-| plan-workflow                  | `@workspace /prompt plan-workflow`                  | タスク実行計画                                             |
-| design-workflow                | `@workspace /prompt design-workflow`                | ワークフロー設計                                           |
-| debug-error                    | `@workspace /prompt debug-error`                    | エラー分析・原因特定・解決                                 |
-| write-tests                    | `@workspace /prompt write-tests`                    | テスト生成（計画 → 実装 → 検証）                           |
-| review-retrospective-learnings | `@workspace /prompt review-retrospective-learnings` | 振り返りと学びの抽出                                       |
-| gc_Commit                      | `@workspace /prompt gc_Commit`                      | 変更をコミット                                             |
-| gcp_Commit_Push                | `@workspace /prompt gcp_Commit_Push`                | コミットしてプッシュ                                       |
-| gpull                          | `@workspace /prompt gpull`                          | リモートからプル                                           |
-| sample                         | `@workspace /prompt sample`                         | プロンプト作成用テンプレート                               |
+| プロンプト                     | 呼び出し方                                          | 用途                                     |
+| ------------------------------ | --------------------------------------------------- | ---------------------------------------- |
+| create-workflow                | `@workspace /prompt create-workflow`                | エージェント/ワークフロー作成（統合版）  |
+| review-agents-and-instructions | `@workspace /prompt review-agents-and-instructions` | エージェント・instructions のレビュー    |
+| plan-workflow                  | `@workspace /prompt plan-workflow`                  | タスク実行計画                           |
+| design-workflow                | `@workspace /prompt design-workflow`                | ワークフロー設計                         |
+| debug-error                    | `@workspace /prompt debug-error`                    | エラー分析・原因特定・解決               |
+| write-tests                    | `@workspace /prompt write-tests`                    | テスト生成（計画 → 実装 → 検証）         |
+| review-retrospective-learnings | `@workspace /prompt review-retrospective-learnings` | 振り返りと学びの抽出                     |
+| review-session-export-md       | `@workspace /prompt review-session-export-md`       | セッション内容を Markdown でエクスポート |
+| gc_Commit                      | `@workspace /prompt gc_Commit`                      | 変更をコミット                           |
+| gcp_Commit_Push                | `@workspace /prompt gcp_Commit_Push`                | コミットしてプッシュ                     |
+| gpull                          | `@workspace /prompt gpull`                          | リモートからプル                         |
+| sample                         | `@workspace /prompt sample`                         | プロンプト作成用テンプレート             |
 
 ### 推奨フロー
 
-1. **新しいワークフローを作りたい** → `@workspace /agent workflow-designer` を呼び出す
-2. **既存のエージェントをレビューしたい** → `@workspace /prompt review-agent` を呼び出す
+1. **新しいエージェント/ワークフローを作りたい** → `@workspace /prompt create-workflow` を呼び出す
+2. **既存のエージェントをレビューしたい** → `@workspace /prompt review-agents-and-instructions` を呼び出す
 3. **手動でエージェントを作りたい** → `.github/agents/sample.agent.md` をコピーして編集
 
 ---
@@ -166,39 +163,6 @@ Copilot Chat で以下のショートカットを使う：
 - 長文プロンプトを書く
 - `/dev/null` へのリダイレクト
 - `git push` を自動実行
-
----
-
-## 📦 Skill Finder v1.7.0
-
-`skill-finder` はエージェント用スキルを検索・管理するツール。
-
-### 収録ソース（9 リポジトリ）
-
-| ソース                         | タイプ       | 説明                                         |
-| ------------------------------ | ------------ | -------------------------------------------- |
-| **anthropics-skills**          | 🏢 Official  | Anthropic 公式 Claude Skills                 |
-| **github-awesome-copilot**     | 🏢 Official  | GitHub 公式 Copilot リソース                 |
-| **obra-superpowers**           | 👥 Community | 高品質スキル・エージェント集                 |
-| **composio-awesome**           | 📋 Curated   | Claude Skills キュレーションリスト           |
-| **context-engineering-skills** | 👥 Community | Context Engineering スキル（5k+ Stars）      |
-| **pai-packs**                  | 👥 Community | Personal AI Infrastructure by danielmiessler |
-| **compound-engineering**       | 👥 Community | Compound Engineering（3.5k+ Stars）          |
-| **prps-agentic**               | 👥 Community | PRP（Prompt Recipe Patterns）スキル          |
-| **claude-command-suite**       | 👥 Community | Claude コマンド＆スキル集                    |
-
-### 使い方
-
-```powershell
-# キーワード検索
-python .github/skills/skill-finder/scripts/search_skills.py "python"
-
-# タグ検索
-python .github/skills/skill-finder/scripts/search_skills.py "#development #testing"
-
-# スキル詳細
-python .github/skills/skill-finder/scripts/search_skills.py --info test-driven-development
-```
 
 ---
 
